@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@inquirer/core": "^10.0.0",
+    "@inquirer/select": "^4.0.0",
     "@types/inquirer": "^9.0.7",
     "@types/node": "^22.7.6",
     "@types/pg": "^8.11.10",
