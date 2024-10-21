@@ -1,35 +1,34 @@
-const inquirer = require('inquirer');
+import { mainMenuPrompt, employeePrompt } from './utils/prompt';
+import { viewEmployees, addEmployee } from './queries/employeeQueries';
 
-function mainMenu() {
-  inquirer.prompt([
-    {
-      type: 'list',
-      name: 'action',
-      message: 'What would you like to do?',
-      choices: ['View Employees', 'Add Employee', 'Update Employee', 'Delete Employee', 'Exit']
-    }
-  ]).then(answer => {
-    switch (answer.action) {
-      case 'View Employees':
-        viewEmployees();
-        break;
-      case 'Add Employee':
-        addEmployee();
-        break;
-      // Handle other cases...
-    }
-  });
-}
+const mainMenu = async () => {
+  const { action } = await mainMenuPrompt();
 
-const { Client } = require('pg');
-require('dotenv').config();
+  switch (action) {
+    case 'View Employees':
+      const employees = await viewEmployees();
+      if (employees && employees.length > 0) {
+        console.table(employees);
+      } else {
+        console.log('No employees found.');
+      }
+      break;
 
-const client = new Client({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASS,
-  port: process.env.DB_PORT,
-});
+    case 'Add Employee':
+      const employeeData = await employeePrompt();
+      await addEmployee(employeeData);
+      break;
 
-client.connect();
+    case 'Exit':
+      process.exit();
+
+    default:
+      console.log('Invalid action.');
+  }
+
+  // Recursive call to keep the menu running after each action
+  mainMenu();
+};
+
+// Start the application
+mainMenu();
