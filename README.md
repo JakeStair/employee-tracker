@@ -31,6 +31,8 @@ The application meets the following acceptance criteria:
 - **Inquirer**: A library for building interactive command-line user interfaces.
 - **PostgreSQL**: Relational database management system for storing employee data.
 ## Walkthrough Video
+For a demonstration of the application's features, you can watch the walkthrough video [here](https://drive.google.com/file/d/1EaNlNM0RAdZJbI9Eo3XUpiq22FoBqo6j/view?usp=drive_link).
+
 ## Installation
 Make sure you have the following installed:
 - [Node.js](https://nodejs.org/en/download/) (version X.X.X or higher)
