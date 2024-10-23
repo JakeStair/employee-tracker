@@ -14,6 +14,7 @@ export const viewEmployees = async () => {
     return res.rows;
   } catch (err) {
     console.error('Error fetching employees:', err);
+    return [];
   }
 };
 
