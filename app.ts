@@ -1,9 +1,11 @@
-import { mainMenuPrompt, employeePrompt } from './utils/prompt';
-import { viewEmployees, addEmployee } from './queries/employeeQueries';
+import { mainMenuPrompt, employeePrompt, updateEmployeePrompt, deleteEmployeePrompt } from './utils/prompt';
+import { viewEmployees, addEmployee, updateEmployee, deleteEmployee } from './queries/employeeQueries';
 
 const mainMenu = async () => {
   try {
-    const { action } = await mainMenuPrompt();
+    const response = await mainMenuPrompt();
+    console.log('Response:', response); // Log the entire response object
+    const { action } = response; // Destructure action
 
     switch (action) {
       case 'View Employees':
@@ -21,20 +23,40 @@ const mainMenu = async () => {
         console.log('Employee added successfully!');
         break;
 
+      case 'Update Employee':
+        const employeeUpdateData = await updateEmployeePrompt();
+        await updateEmployee(employeeUpdateData);
+        console.log('Employee updated successfully!');
+        break;
+
+      case 'Delete Employee':
+        const employeeDeleteData = await deleteEmployeePrompt();
+        await deleteEmployee(employeeDeleteData.id);
+        console.log('Employee deleted successfully!');
+        break;
+
       case 'Exit':
         console.log('Goodbye!');
         process.exit();
 
       default:
-        console.log('Invalid action.');
+        console.log('Invalid action:', action); // Log invalid action
     }
   } catch (error) {
-    console.error('An error occurred:', error);
+    if (error instanceof Error) {
+      console.error('An error occurred:', error.message); // Enhanced error logging
+    } else {
+      console.error('An unknown error occurred:', error);
+    }
+    if (error instanceof Error) {
+      console.error(error.stack); // Log stack trace
+    }
   }
 
-  // Recursive call to keep the menu running after each action
-  await mainMenu(); // Use await to ensure the next prompt waits for the previous one to complete
+  await mainMenu();
 };
+
+
 
 // Start the application
 mainMenu();
