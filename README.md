@@ -1,14 +1,15 @@
-# work-it-out
+# Employee Tracker
 
 ## Overview
 
-**Work it out** is a command-line application designed to help business owners manage their employee database effectively. Built using Node.js, Inquirer, and PostgreSQL, this application allows users to view and manage departments, roles, and employees within their company, facilitating better organization and planning.
+Employee Tracker is a powerful command-line tool crafted to assist business owners in efficiently managing their employee databases. Leveraging the capabilities of Node.js, Inquirer, and PostgreSQL, this application empowers users to seamlessly view and oversee departments, roles, and employee information, enhancing organizational efficiency and strategic planning.
 
 ## User Story
 
 - **As a business owner**, I want to be able to view and manage the departments, roles, and employees in my company so that I can organize and plan my business.
 
 ## Acceptance Criteria
+
 The application meets the following acceptance criteria:
 - **Start the Application**: When the application starts, users are presented with options to:
   - View all departments
@@ -43,12 +44,23 @@ Set up Enviroment Variables (.env)
 -DB_PASS=your_database_password
 -DB_PORT=5432
 ## Usage
-bash
--npm start
+```bash
+npm start
+```
 Clone the Repository
-bash
--git clone git@github.com:Elementary-my-dear-Watson/work-it-out.git
+```bash
+-git clone git@github.com:JakeStair/employee-tracker.git
 cd work-it-out
+```
+Set up the Environment Variables
+```
+DB_USER=your_database_username
+DB_HOST=localhost
+DB_NAME=your_database_name
+DB_PASS=your_database_password
+DB_PORT=5432
+```
+
 ## Contibuting
 Contributions are welcome! If you would like to contribute, please follow these steps:
 - Fork the repository.
@@ -60,16 +72,17 @@ Contributions are welcome! If you would like to contribute, please follow these 
 This project is licensed under the MIT License. See the LICENSE file for details.
 ## Acknowledgements
 Inquirer.js - For creating interactive command-line interfaces.
+
 pg - For PostgreSQL database interactions.
+
+
 Special Thanks
-I would like to extend my gratitude to Jacob Watson, and Nick S. for their invaluable support throughout this project. Their expertise in helping with debugging and problem solving made a significant difference.
+
+I would like to express my heartfelt appreciation to Martha Watson and Nick S. for their tremendous support during this project. Their guidance and expertise in troubleshooting and problem-solving have been invaluable and made a significant impact on my work.
 ## Contact
-For questions or inquiries, please contact:
-Martha Watson - marthacdenzer@gmail.com
-GitHub - https://github.com/Elementary-my-dear-Watson
-nodejs.orgnodejs.org
-Node.js — Download Node.js®
-Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
-GitHubGitHub
-Elementary-my-dear-Watson - Overview
-Coding Newbie. Elementary-my-dear-Watson has 9 repositories available. Follow their code on GitHub.
+- For questions or inquiries, please contact:
+- Jake Watson: jacob.watson00@yahoo.com
+- GitHub - https://github.com/JakeStair
+- nodejs.orgnodejs.org
+- Node.js — Download Node.js®
+- Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
